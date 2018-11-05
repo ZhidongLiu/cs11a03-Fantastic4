@@ -1,8 +1,4 @@
 Name : Daniel
 Github: Danielyeahyeah
 
-<<<<<<< HEAD
-Make A Change!
-=======
-Date: 11/5/2018
->>>>>>> 9e1e7db1cd58737f96d1cda24c2bb5afba2f2e96
+A second change.
