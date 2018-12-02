@@ -2,33 +2,38 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.Scanner;
 import mosaic.Mosaic;
+import java.util.Arrays;
 public class core{
   public static void main(String[] args){
-    /*
-    Maze maze = new Maze(level+9); min_length = 10, min_level = 1;
-    array: maze.output; output.size = level+1
-    */
-    int[][] Maze = new int[10][2];
-    Scanner scan = new Scanner(System.in);
 
-    Maze[0] = new int[]{25,25};
-    Maze[1] = new int[]{25,26};
-    Maze[2] = new int[]{25,27};
-    Maze[3] = new int[]{25,28};
-    Maze[4] = new int[]{25,29};
-    Maze[5] = new int[]{24,29};
-    Maze[6] = new int[]{23,29};
-    Maze[7] = new int[]{22,29};
-    Maze[8] = new int[]{21,29};
-    Maze[9] = new int[]{20,29};
+    Maze maze = new Maze(10); //min_length = 10, min_level = 1;
+    maze.route();
+    int[][] route = new int[maze.output[0].length][2];
+
+    for(int i=0;i<route.length;i++){
+      route[i][0] = maze.output[0][i];
+    }
+//    int[][] route = new int[10][2];
+    Scanner scan = new Scanner(System.in);
+/*
+    route[0] = new int[]{25,25};
+    route[1] = new int[]{25,26};
+    route[2] = new int[]{25,27};
+    route[3] = new int[]{25,28};
+    route[4] = new int[]{25,29};
+    route[5] = new int[]{24,29};
+    route[6] = new int[]{23,29};
+    route[7] = new int[]{22,29};
+    route[8] = new int[]{21,29};
+    route[9] = new int[]{20,29};
+    */
     //Starting from center coordinate 25,25
     char level = 1;
     Mosaic.open(49,49,10,10);
     while(true){
       Mosaic.setColor(25,25,Color.YELLOW);
-      for(int i=1; i<Maze.length; i++){
-
-        Mosaic.setColor(Maze[i][0],Maze[i][1],Color.WHITE);
+      for(int i=1; i<route[0].length; i++){
+        Mosaic.setColor(route[0][i],route[1][i],Color.WHITE);
       }
       String input = scan.next();
       boolean legalInput = true;
@@ -51,7 +56,7 @@ public class core{
             case 'S':y++;break;
             case 'D':x++;break;
           }
-          if(i+1<Maze.length && y==Maze[i+1][0] && x==Maze[i+1][1]){
+          if(i+1<route.length && y==route[i+1][0] && x==route[i+1][1]){
             Mosaic.setColor(y,x,Color.GREEN);
             Mosaic.delay(100);
           }
@@ -69,8 +74,8 @@ public class core{
           Mosaic.setColor(y,x,Color.RED);
           Mosaic.delay(100);
           System.out.println("!!");
-            y=Maze[i][0];
-            x=Maze[i][1];
+            y=route[i][0];
+            x=route[i][1];
         }
       }
       else{
