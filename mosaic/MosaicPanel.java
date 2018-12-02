@@ -1,4 +1,4 @@
-
+package mosaic;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
@@ -6,9 +6,9 @@ import java.awt.image.BufferedImage;
 /**
  *  A MosaicPanel object represents a grid containing rows
  *  and columns of colored rectangles.  There can be "grouting"
- *  between the rectangles.  (The grouting is just drawn as a 
+ *  between the rectangles.  (The grouting is just drawn as a
  *  one-pixel outline around each rectangle.)  The rectangles can
- *  optionally be drawn as raised 3D-style rectangles.  Methods are 
+ *  optionally be drawn as raised 3D-style rectangles.  Methods are
  *  provided for getting and setting the colors of the rectangles.
  */
 public class MosaicPanel extends JPanel {
@@ -22,23 +22,23 @@ public class MosaicPanel extends JPanel {
     private Color defaultColor;   // Color used for any rectangle whose color
                                   //    has not been set explicitly.  This
                                   //    can never be null.
-    private Color groutingColor;  // The color for "grouting" between 
+    private Color groutingColor;  // The color for "grouting" between
                                   //    rectangles.  If this is null, no
                                   //    grouting is drawn.
     private boolean alwaysDrawGrouting;  // Grouting is drawn around default-
                                          //    colored rects if this is true.
-    private boolean use3D = true;   // If true, 3D rects are used; if false, 
+    private boolean use3D = true;   // If true, 3D rects are used; if false,
                                     //       flat rects are used to draw the rectangles.
-    private boolean autopaint = true;  // If true, then when a square's color is set, 
+    private boolean autopaint = true;  // If true, then when a square's color is set,
                                        //     repaint is called automatically.
     private Color[][] grid; // An array that contains the rectangles' colors.
                             //   If a null occurs in this array, the rectangle
                             //   is drawn in the default color, and "grouting"
                             //   will be drawn around that rectangle only if
-                            //   alwaysDrawGrouting is true.  Also, the 
+                            //   alwaysDrawGrouting is true.  Also, the
                             //   rectangle is drawn as a flat rectangle rather
                             //   than as a 3D rectangle.
-    private BufferedImage OSI;  // The mosaic is actually drawn here, then the image 
+    private BufferedImage OSI;  // The mosaic is actually drawn here, then the image
                                 //is copied to the screen
     private Graphics OSG;  // Graphics context for drawing to OSI
     private boolean needsRedraw;   // This is set to true when a change has occurred that
@@ -66,7 +66,7 @@ public class MosaicPanel extends JPanel {
 
     /**
      *  Construct a MosaicPanel with the specified number of rows and
-     *  columns of rectangles, and with a specified preferred size for the  
+     *  columns of rectangles, and with a specified preferred size for the
      *  rectangle.  The default rectangle color is black, the
      *  grouting color is gray, and alwaysDrawGrouting is set to false.
      *  @param rows the mosaic will have this many rows of rectangles.  This must be a positive number.
@@ -85,7 +85,7 @@ public class MosaicPanel extends JPanel {
 
     /**
      *  Construct a MosaicPanel with the specified number of rows and
-     *  columns of rectangles, and with a specified preferred size for the  
+     *  columns of rectangles, and with a specified preferred size for the
      *  rectangle.  The default rectangle color is black, the
      *  grouting color is gray, and alwaysDrawGrouting is set to false.
      *  If a non-null border color is specified, then a border of that color is added
@@ -188,16 +188,16 @@ public class MosaicPanel extends JPanel {
             forceRedraw();
         }
     }
-    
-    
+
+
     /**
      * Get the value of the use3D property.
      */
     public boolean getUse3D() {
         return use3D;
     }
-    
-    
+
+
     /**
      * Set the use3D property.  When this property is true, the rectangles are
      * drawn as "3D" rects, which are supposed appear to be raised.  When use3D
@@ -212,9 +212,9 @@ public class MosaicPanel extends JPanel {
 
     /**
      *  Get the value of the alwaysDrawGrouting property.
-     */   
+     */
     public boolean getAlwaysDrawGrouting() {
-        return alwaysDrawGrouting; 
+        return alwaysDrawGrouting;
     }
 
 
@@ -224,7 +224,7 @@ public class MosaicPanel extends JPanel {
      *  the rectangles in the new grid are set to null.  If it is true,
      *  then as much color data as will fit is copied from the old grid.
      */
-    public void setGridSize(int rows, 
+    public void setGridSize(int rows,
             int columns, boolean preserveData) {
         if (rows > 0 && columns > 0) {
             Color[][] newGrid = new Color[rows][columns];
@@ -256,7 +256,7 @@ public class MosaicPanel extends JPanel {
      */
     public int getColumnCount() {
         return columns;
-    }   
+    }
 
 
     //------------------ other useful public methods ---------------------
@@ -280,7 +280,7 @@ public class MosaicPanel extends JPanel {
 
     /**
      *  Return the red component of color of the rectangle in the
-     *  specified row and column.  If that rectangle lies outside 
+     *  specified row and column.  If that rectangle lies outside
      *  the grid or if no color has been specified for the rectangle,
      *  then the red component of the defaultColor is returned.
      */
@@ -294,7 +294,7 @@ public class MosaicPanel extends JPanel {
 
     /**
      *  Return the green component of color of the rectangle in the
-     *  specified row and column.  If that rectangle lies outside 
+     *  specified row and column.  If that rectangle lies outside
      *  the grid or if no color has been specified for the rectangle,
      *  then the green component of the defaultColor is returned.
      */
@@ -308,7 +308,7 @@ public class MosaicPanel extends JPanel {
 
     /**
      *  Return the blue component of color of the rectangle in the
-     *  specified row and column.  If that rectangle lies outside 
+     *  specified row and column.  If that rectangle lies outside
      *  the grid or if no color has been specified for the rectangle,
      *  then the blue component of the defaultColor is returned.
      */
@@ -364,11 +364,11 @@ public class MosaicPanel extends JPanel {
     /**
      *  Set the color of the rectangle in the specified row and column.
      *  The color is specified by giving hue, saturation, and brightness
-     *  components of the color.  These values should be in the range from 
+     *  components of the color.  These values should be in the range from
      *  0.0 to 1.0, inclusive, and they are clamped to lie in that range.
      *  If the rectangle lies outside the grid, this is simply ignored.
      */
-    public void setHSBColor(int row, int col, 
+    public void setHSBColor(int row, int col,
             double hue, double saturation, double brightness) {
         if (row >=0 && row < rows && col >= 0 && col < columns) {
             grid[row][col] = makeHSBColor(hue,saturation,brightness);
@@ -409,13 +409,13 @@ public class MosaicPanel extends JPanel {
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
                 grid[i][j] = c;
-        forceRedraw();      
+        forceRedraw();
     }
 
 
     /**
      *  Set all rectangles of the grid to have the color specified by
-     *  the given red, green, and blue components.  These components 
+     *  the given red, green, and blue components.  These components
      *  should be integers in the range 0 to 255 and are clamped to lie
      *  in that range.
      */
@@ -468,15 +468,15 @@ public class MosaicPanel extends JPanel {
      * in the data for the mosaic but are not made on the screen.  When the
      * autopaint property is reset to true, the changes are applied and the
      * entire mosaic is repainted.  The default value of this property is
-     * true.  
-     * <p>Note that clearing or filling the mosaic will cause an immediate 
+     * true.
+     * <p>Note that clearing or filling the mosaic will cause an immediate
      * screen update, even if autopaint is false.
      */
     public void setAutopaint(boolean autopaint) {
         if (this.autopaint == autopaint)
             return;
         this.autopaint = autopaint;
-        if (autopaint) 
+        if (autopaint)
             forceRedraw();
     }
 
@@ -495,7 +495,7 @@ public class MosaicPanel extends JPanel {
 
     /**
      *   Return an object that contains the color data that
-     *   is needed to redraw the mosaic.  This includes the 
+     *   is needed to redraw the mosaic.  This includes the
      *   defaultColor, the groutingColor, the number of rows and
      *   columns, the color of each rectangle, and the
      *   value of alwaysDrawGrouting.
@@ -627,7 +627,7 @@ public class MosaicPanel extends JPanel {
     }
 
     synchronized private void drawSquare(int row, int col, boolean callRepaint) {
-           // Draw one of the rectangles in a specified graphics 
+           // Draw one of the rectangles in a specified graphics
            // context.  g must be non-null and (row,col) must be
            // in the grid.
         if (callRepaint && !autopaint)
@@ -636,7 +636,7 @@ public class MosaicPanel extends JPanel {
         double rowHeight = (double)(getHeight()-insets.left-insets.right) / rows;
         double colWidth = (double)(getWidth()-insets.top-insets.bottom) / columns;
         int xOffset = insets.left;
-        int yOffset = insets.top; 
+        int yOffset = insets.top;
         int y = yOffset + (int)Math.round(rowHeight*row);
         int h = Math.max(1, (int)Math.round(rowHeight*(row+1))+yOffset - y);
         int x = xOffset + (int)Math.round(colWidth*col);

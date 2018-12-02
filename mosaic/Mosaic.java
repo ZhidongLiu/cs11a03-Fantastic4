@@ -1,4 +1,4 @@
-
+package mosaic;
 import java.awt.*;
 import javax.swing.*;
 
@@ -24,7 +24,7 @@ public class Mosaic {
     private static int mosaicCols;      // The number of cols in the mosaic, if the window is open.
 
 
-    /** 
+    /**
      * Open a mosaic window with a 20-by-20 grid of squares, where each
      * square is 15 pixel on a side.
      */
@@ -53,7 +53,7 @@ public class Mosaic {
      *                   wide and h pixels high.  The number of rows is given by
      *                   the first parameter and the number of columns by the
      *                   second.  Initially, all rectangles are black.
-     * Note:  The rows are numbered from 0 to rows - 1, and the columns are 
+     * Note:  The rows are numbered from 0 to rows - 1, and the columns are
      * numbered from 0 to cols - 1.
      */
     public static void open(int rows, int columns, int blockWidth, int blockHeight) {
@@ -130,7 +130,7 @@ public class Mosaic {
 
     /**
      * Gets the color of one of the rectangles in the mosaic.
-     * 
+     *
      * Precondition:   row and col are in the valid range of row and column numbers.
      * Postcondition:  The color of the specified rectangle is returned as
      *                 object of type color.
@@ -214,10 +214,10 @@ public class Mosaic {
      *                   and r, g, and b are in the range 0 to 255, inclusive.
      * Postcondition:  The color of the rectangle in row number row and column
      *                   number col has been set to the color specified by r, g,
-     *                   and b.  r gives the amount of red in the color with 0 
-     *                   representing no red and 255 representing the maximum 
-     *                   possible amount of red.  The larger the value of r, the 
-     *                   more red in the color.  g and b work similarly for the 
+     *                   and b.  r gives the amount of red in the color with 0
+     *                   representing no red and 255 representing the maximum
+     *                   possible amount of red.  The larger the value of r, the
+     *                   more red in the color.  g and b work similarly for the
      *                   green and blue color components.
      */
     public static void setColor(int row, int col, int red, int green, int blue) {
@@ -234,7 +234,7 @@ public class Mosaic {
     /**
      * Fills the entire mosaic with a specified color.  If c is null, the mosaic
      * is filled with black.
-     * 
+     *
      * Precondition:  The mosaic window must be open.
      */
     public static void fill(Color c) {
@@ -245,7 +245,7 @@ public class Mosaic {
     /**
      * Fills the entire mosaic with a color that is specified by giving its
      * red, green, and blue components (numbers in the range 0 to 255).
-     * 
+     *
      * Precondition:  The mosaic window must be open.
      */
     public static void fill(int red, int green, int blue) {
@@ -257,14 +257,14 @@ public class Mosaic {
      * Fill the entire mosaic window with random colors by setting
      * the color of each rectangle to a randomly selected red/blue/green
      * values.
-     * 
+     *
      * Precondition:  The mosaic window must be open.
      */
     public static void fillRandomly() {
         canvas.fillRandomly();
     }
-    
-    
+
+
     /**
      *  If use3DEffect is true, which is the default, then rectangles are drawn
      *  as "3D" rects, which is supposed to make them look raised up from their
@@ -282,8 +282,8 @@ public class Mosaic {
             canvas.repaint();
         }
     }
-    
-    
+
+
     /**
      * Returns the value of the use3DEffect property.
      * @return
@@ -292,5 +292,8 @@ public class Mosaic {
         return use3DEffect;
     }
 
+    public static void clear(){
+      canvas.clear();
+    }
 
 }  // end of class Mosaic

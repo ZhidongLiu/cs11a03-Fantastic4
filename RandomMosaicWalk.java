@@ -3,6 +3,7 @@
 * moves randomly around in the window, randomly changing the color of each
 * square that it visits. The program runs until the user closes the window.
 */
+import mosaic.Mosaic;
 public class RandomMosaicWalk {
   static int currentRow; // Row currently containing the disturbance.
   static int currentColumn; // Column currently containing disturbance.
@@ -20,7 +21,7 @@ public class RandomMosaicWalk {
     while (Mosaic.isOpen()) {
       changeToRandomColor(currentRow, currentColumn);
       randomMove();
-      Mosaic.delay(1000);
+      Mosaic.delay(100);
       }
     } // end main
     /**
