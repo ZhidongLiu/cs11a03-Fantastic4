@@ -44,7 +44,7 @@ public class core{
   public static boolean testPlayerRoute(){
     x=25;
     y=25;
-    Mosaic.setColor(x,y,Color.GREEN);
+    Mosaic.setColor(y,x,Color.GREEN);
     Mosaic.delay(100);
 
     for(checkI=0; checkI<input.length(); checkI++){
