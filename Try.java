@@ -6,7 +6,8 @@ import java.util.Arrays;
 
 public class Try{
   private static class Point{
-    int a, b;
+    int a;
+    int b;
     public Point(int a, int b){
       this.a = a;
       this.b = b;
@@ -27,6 +28,8 @@ public class Try{
   public static void main(String[] args){
     Mosaic.open(49, 49, 10, 10);
     System.out.println("You can try how to play the game.");
+    System.out.println("You have three chances in this 5-level game.");
+    System.out.println("You can use 'w', 'a', 's', 'd' key to control the up, left, down and right.");
     System.out.println("Which level you want to try (from 1 to 5)?");
     int level =scan.nextInt();
     init(level);
@@ -39,7 +42,7 @@ public class Try{
     }
     index = 0;
     Point p = new Point(24, 24);
-    System.out.println(route.length);
+
     while(index < route.length - 1){
       if (!checkSingleInput()){
           System.out.println("Wrong Input.");
@@ -47,13 +50,17 @@ public class Try{
       }else{
         if (testPlayRoute2(index, p)){
           lightPath(p);
+          Mosaic.delay(100);
           index++;
-          System.out.println(index);
         }else{
           System.out.println("The route is invalid.");
         }
       }
     }
+    showSolution();
+    System.out.println("Congratulations! You can try to play the real game.");
+    Mosaic.delay(500);
+    Mosaic.close();
 
 }
 
@@ -106,5 +113,10 @@ public class Try{
   public static void lightPath(Point p){
     Mosaic.setColor(p.a, p.b, Color.BLUE);
   }
-
+  public static void showSolution(){
+    for (int i = 0; i < route.length; i++){
+      Mosaic.setColor(route[i][0], route[i][1], Color.GREEN);
+      Mosaic.delay(100);
+    }
+  }
 }
