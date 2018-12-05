@@ -11,15 +11,15 @@ public class Maze{
 
   public void route(){
     output = new int[2][length+1];
-    output[0][0] = 25;
-    output[1][0] = 25;
+    output[0][0] = 24;
+    output[1][0] = 24;
     Random rand = new Random();
 
     boolean isdone = false;
     while(!isdone){
-      data[25][25] = 1;
-      int presentRow = 25;
-      int presentCol = 25;
+      data[24][24] = 1;
+      int presentRow = 24;
+      int presentCol = 24;
       int[] recordOfDirec = new int[length];
       int numberOfOpen =0;
       int formerDirec = 0;
