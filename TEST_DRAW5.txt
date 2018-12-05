@@ -1,8 +1,7 @@
-oooooooooooo
-oooxxxxxoooo
-oooxoooooooo
-oooxxxxxoooo
-oooooooxoooo
-oooxxxxxoooo
-oooooooooooo
-oooooooooooo
+ooooooooo
+ooxxxxxoo
+ooxoooooo
+ooxxxxxoo
+ooooooxoo
+ooooooxoo
+ooxxxxxoo
