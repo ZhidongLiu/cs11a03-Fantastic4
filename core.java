@@ -74,8 +74,6 @@ public class core{
 
  }
 
-
-
   public static void init(int lv){
     Maze maze = new Maze(4+2*lv); //min_length = 10, min_level = 1;
     maze.route();
