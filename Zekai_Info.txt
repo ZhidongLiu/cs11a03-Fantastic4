@@ -1,1 +1,3 @@
 Name: Zekai Wang
+Github: winstonwzk
+Email: zekaiwang@brandeis.edu
