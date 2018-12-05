@@ -18,6 +18,16 @@ public class core{
     Mosaic.delay(80);
   }
 
+  public static void drawLevel(int lv){
+    Mosaic.clear();
+    for(int i=0;i<draw.level[lv-1].length;i++){
+      int x= draw.level[lv-1][i][0];
+      int y= draw.level[lv-1][i][1];
+    }
+    Mosaic.delay(3000);
+    Mosaic.clear();
+  }
+
   public static void init(int lv){
     Maze maze = new Maze(4+2*lv); //min_length = 10, min_level = 1;
     maze.route();
