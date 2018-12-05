@@ -170,7 +170,7 @@ public class core{
     int life = 3;
     init(level);
     while(true){
-      System.out.Println("Who is the smartest baby? Let's SEE SEE!");
+      System.out.println("Who is the smartest baby? Let's SEE SEE!");
       System.out.println("Level "+level);
       drawLevel(level);
       //Draw the map(route)
