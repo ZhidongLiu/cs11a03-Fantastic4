@@ -21,14 +21,15 @@ public class core{
   public static void drawLevel(int lv){
     Mosaic.clear();
     for(int j=0; j<3;j++){
-    for(int i=0;i<draw.level[lv-1].length;i++){
-      int x= draw.level[lv-1][i][0];
-      int y= draw.level[lv-1][i][1];
-      Mosaic.setColor(x,y,Color.PINK);
+      for(int i=0;i<draw.level[lv-1].length;i++){
+        int x= draw.level[lv-1][i][0];
+        int y= draw.level[lv-1][i][1];
+        Mosaic.setColor(x,y,Color.PINK);
+      }
+      Mosaic.delay(500);
+      Mosaic.clear();
+      Mosaic.delay(500);
     }
-    Mosaic.delay(500);
-    Mosaic.clear();
-  }
   }
   public static void init(int lv){
     Maze maze = new Maze(4+2*lv); //min_length = 10, min_level = 1;
@@ -123,7 +124,6 @@ public class core{
     init(level);
     while(true){
       System.out.println("Level "+level);
-
       drawLevel(level);
       //Draw the map(route)
       Mosaic.setColor(24,24,Color.YELLOW);
