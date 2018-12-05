@@ -20,17 +20,62 @@ public class core{
 
   public static void drawLevel(int lv){
     Mosaic.clear();
-    for(int j=0; j<3;j++){
+
       for(int i=0;i<draw.level[lv-1].length;i++){
         int x= draw.level[lv-1][i][0];
         int y= draw.level[lv-1][i][1];
         Mosaic.setColor(x,y,Color.PINK);
       }
-      Mosaic.delay(500);
+      Mosaic.delay(400);
       Mosaic.clear();
-      Mosaic.delay(500);
-    }
+
+
+      for(int i=0;i<draw.level[lv-1].length;i++){
+        int x= draw.level[lv-1][i][0];
+        int y= draw.level[lv-1][i][1];
+        Mosaic.setColor(x,y,Color.RED);
+      }
+      Mosaic.delay(400);
+      Mosaic.clear();
+
+
+      for(int i=0;i<draw.level[lv-1].length;i++){
+        int x= draw.level[lv-1][i][0];
+        int y= draw.level[lv-1][i][1];
+        Mosaic.setColor(x,y,Color.BLUE);
+      }
+      Mosaic.delay(400);
+      Mosaic.clear();
   }
+
+ public static void smile(){
+   Mosaic.clear();
+   for(int i=0;i<draw.smile.length;i++){
+     int x= draw.smile[i][0];
+     int y= draw.smile[i][1];
+     Mosaic.setColor(x,y,Color.ORANGE);
+   }
+
+   Mosaic.delay(1000);
+   Mosaic.clear();
+
+ }
+
+ public static void cry(){
+   Mosaic.clear();
+   for(int i=0;i<draw.cry.length;i++){
+     int x= draw.cry[i][0];
+     int y= draw.cry[i][1];
+     Mosaic.setColor(x,y,Color.GREEN);
+   }
+
+   Mosaic.delay(1000);
+   Mosaic.clear();
+
+ }
+
+
+
   public static void init(int lv){
     Maze maze = new Maze(4+2*lv); //min_length = 10, min_level = 1;
     maze.route();
@@ -138,6 +183,7 @@ public class core{
       if(testPlayerRoute()){
         if(level<5){
           System.out.println("Level "+level+" clear, starting Level "+(level+1));
+          smile();
           init(++level);
           Mosaic.delay(1000);
           Mosaic.clear();
@@ -153,6 +199,7 @@ public class core{
         showFail(x,y,checkI);
         if(life>1){
           System.out.println("Try again, "+(--life)+" lives remain.");
+          cry();
           Mosaic.delay(1000);
           Mosaic.clear();
         }
