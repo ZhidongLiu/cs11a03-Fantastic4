@@ -56,7 +56,7 @@ public class core{
      Mosaic.setColor(x,y,Color.ORANGE);
    }
 
-   Mosaic.delay(1000);
+   Mosaic.delay(1500);
    Mosaic.clear();
 
  }
@@ -69,12 +69,10 @@ public class core{
      Mosaic.setColor(x,y,Color.GREEN);
    }
 
-   Mosaic.delay(1000);
+   Mosaic.delay(1500);
    Mosaic.clear();
 
  }
-
-
 
   public static void init(int lv){
     Maze maze = new Maze(4+2*lv); //min_length = 10, min_level = 1;
@@ -87,6 +85,7 @@ public class core{
   }
 
   public static boolean checkInput(){
+    System.out.print("Please input your command: ");
     input = scan.next();
     boolean legalInput = true;
     input = input.toUpperCase();
@@ -162,7 +161,10 @@ public class core{
   public static void main(String[] args){
     //Open a 49X49 window
     Mosaic.open(49,49,10,10);
+    System.out.println("Maze Game");
     //Generte the first level map(route)
+    System.out.println("Type a string includes w(go up),a(go left),s(go down),d(go right) (or upper case) to give commands.");
+    System.out.println("You will know the result after enter the command...");
     System.out.println("You have 3 lives for 5 levels.");
     int level =1;
     int life = 3;
@@ -177,7 +179,7 @@ public class core{
       }
       //Check if the input only have characters: W A S D w a s d
       while(!checkInput()){
-        System.out.println("Wrong input.");
+        System.out.println("Wrong input. Your input should only contains w,a,s,d. (either lower or upper case)");
       }
       //Test whther the player goes the right route
       if(testPlayerRoute()){
@@ -185,13 +187,11 @@ public class core{
           System.out.println("Level "+level+" clear, starting Level "+(level+1));
           smile();
           init(++level);
-          Mosaic.delay(1000);
-          Mosaic.clear();
-          Mosaic.delay(500);
         }
         else{
           System.out.println("Congratulations, you have complete the game!");
-          Mosaic.delay(3000);
+          smile();
+          Mosaic.delay(1000);
           break;
         }
       }
@@ -200,12 +200,11 @@ public class core{
         if(life>1){
           System.out.println("Try again, "+(--life)+" lives remain.");
           cry();
-          Mosaic.delay(1000);
-          Mosaic.clear();
         }
         else{
           System.out.println("Game Over");
-          Mosaic.delay(3000);
+          cry();
+          Mosaic.delay(1000);
           break;
         }
       }
