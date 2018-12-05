@@ -16,7 +16,7 @@ public class mod{
     Mosaic.open(49,49,10,10);
 
     final int row = 7;
-    final int col = 7;
+    final int col = 10;
     /*read file into coordinate array*/
     while(scan.hasNext()){
       for(int i=0; i<row; i++){ //
