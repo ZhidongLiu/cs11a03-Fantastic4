@@ -161,7 +161,7 @@ public class core{
   public static void main(String[] args){
     //Open a 49X49 window
     Mosaic.open(49,49,10,10);
-    System.out.println("Maze Game");
+    System.out.println("Baby-Maze");
     //Generte the first level map(route)
     System.out.println("Type a string includes w(go up),a(go left),s(go down),d(go right) (or upper case) to give commands.");
     System.out.println("You will know the result after enter the command...");
@@ -170,6 +170,7 @@ public class core{
     int life = 3;
     init(level);
     while(true){
+      System.out.Println("Who is the smartest baby? Let's SEE SEE!");
       System.out.println("Level "+level);
       drawLevel(level);
       //Draw the map(route)
